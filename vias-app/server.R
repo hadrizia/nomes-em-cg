@@ -27,7 +27,8 @@ shinyServer(function(input, output) {
         vias_profissao = vias %>% filter(profissao == prof_selecionada())
         vias_profissao %>% 
             ggplot(aes(x = arvores_100m_mean)) + 
-            geom_histogram(binwidth = 1, 
+            geom_histogram(
+                           bins = input$bins,
                            boundary = 0, 
                            fill = "darkgreen") + 
             scale_x_continuous(limits = c(0, 15))
